@@ -170,9 +170,6 @@ func main() {
 		}
 		log.Warning("--test-on-replica-skip-replica-stop enabled. We will not stop replication before cut-over. Ensure you have a plugin that does this.")
 	}
-	if migrationContext.AssumeMasterHostname != "" && !migrationContext.AllowedMasterMaster && !migrationContext.IsTungsten {
-		log.Fatalf("--assume-master-host requires either --allow-master-master or --tungsten")
-	}
 
 	switch *cutOver {
 	case "atomic", "default", "":
